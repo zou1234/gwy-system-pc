@@ -31,7 +31,6 @@ export default {
   background: #fff;
   padding: 10px;
   margin: 10px 5px 0 10px;
-
   height: calc(100vh - 80px);
 }
 
