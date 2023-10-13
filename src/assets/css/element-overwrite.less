@@ -4,3 +4,21 @@
   background: #f8f8f8;
   padding: 15px 15px;
 }
+
+// el-tabs 全局相关修改
+.l-tabs{
+  .el-tabs__item{
+    font-size: 17px;
+    color: #fff;
+  }
+  .el-tabs__item.is-active{
+    color: yellow;
+  }
+  .el-tabs__active-bar{
+    background: yellow;
+    height: 4px
+  }
+  .el-tabs__nav-wrap::after{
+    background: none;
+  }
+}

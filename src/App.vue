@@ -28,4 +28,9 @@
 </script>
 
 <style lang="less">
+#app{
+  width: 100vh;
+  box-sizing: border-box;
+  background: #f3f1f1;
+}
 </style>

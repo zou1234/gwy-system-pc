@@ -24,6 +24,20 @@ routes = [
             title: '机构信息管理-全国公务员管理信息系统'
         }
     },
+    {
+        path: '/zcfg',
+        component: () => import ('../view/zcfg'),
+        meta: {
+            title: '机构信息管理-全国公务员管理信息系统'
+        }
+    },
+    {
+        path: '/bbzt',
+        component: () => import ('../view/bbzt'),
+        meta: {
+            title: '机构信息管理-全国公务员管理信息系统'
+        }
+    },
 ];
 
 routes.forEach(route => {

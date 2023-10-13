@@ -52,7 +52,8 @@ export default {
         },
         {
           img: require('../../images/bbzt.png'),
-          title: '报表直统'
+          title: '报表直统',
+          route: '/bbzt'
         },
         {
           img: require('../../images/xxcj.png'),
@@ -64,7 +65,8 @@ export default {
         },
         {
           img: require('../../images/zcfg.png'),
-          title: '政策法规'
+          title: '政策法规',
+          route: '/zcfg'
         },
       ]
     };
