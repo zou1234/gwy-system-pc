@@ -1,20 +1,16 @@
 import Vue from "vue";
 import App from "./App";
+
 const routerPromise = import(`./router/index`);
 
 import "@/assets/css/iconfont/iconfont.css";
 import "@/assets/css/global.less";
+import "@/assets/css/element-overwrite.less";
 
 // 全局组件
-import {
-    icon,
-    Tooltip,
-    InfiniteScroll
-} from 'element-ui';
-
-Vue.use(icon);
-Vue.use(Tooltip);
-Vue.use(InfiniteScroll);
+import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui';
+Vue.use(ElementUI);
 
 // 路由配置文件加载
 routerPromise.then(({
