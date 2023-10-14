@@ -97,8 +97,9 @@
     //justify-content: space-between;
     background-image: url("./images/heraderBac.jpg");
     background: #205bf5;
+    //background: #313248;
     line-height: 60px;
-    color: #d2e3f7;
+    color: #efeeee;
 
     &__middle{
       vertical-align: top;
