@@ -8,7 +8,7 @@
     </sy-header>
 
     <!--  报表直统  -->
-    <layout-row v-if="activeName === 'first'">
+    <layout-row :spanConfig="djgxz ? [5.5, 18.5] : [5, 19]" v-if="activeName === 'first'">
       <div class="bbzt-left" slot="left">
         <div class="bbzt-left__top">
           <el-input placeholder="报表名" v-model="bbName" class="input-with-select">
@@ -24,8 +24,13 @@
             <el-button slot="append" icon="el-icon-search"></el-button>
           </el-input>
 
+          <div class="bbzt-checked">
+            <el-checkbox v-model="djgxz">多机构选择</el-checkbox>
+            <el-checkbox v-model="bhxj">包含下级</el-checkbox>
+          </div>
+
           <div class="l-scrollbar">
-            <el-tree :data="data" show-checkbox :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+            <el-tree :data="data" :show-checkbox="djgxz" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
           </div>
         </div>
       </div>
@@ -49,8 +54,24 @@
     </layout-row>
 
     <!--  批量计算  -->
-    <layout-row v-else>
+    <layout-row :spanConfig="djgxz ? [5.5, 18.5] : [5, 19]"  v-else>
       <div slot="left">
+        <div class="bbzt-right__header">
+          <el-row>
+            <el-col :span="6">
+              <el-button size="small" icon="el-icon-delete">删除</el-button>
+            </el-col>
+            <el-col :span="6">
+              <el-button size="small" icon="el-icon-setting">刷新</el-button>
+            </el-col>
+            <el-col :span="6">
+              <el-button size="small" icon="el-icon-document">评估</el-button>
+            </el-col>
+            <el-col :span="6">
+              <el-button size="small" icon="el-icon-document">重启</el-button>
+            </el-col>
+          </el-row>
+        </div>
         <div class="bbzt-left__top">
           <el-input placeholder="报表名" v-model="bbName" class="input-with-select">
             <el-button slot="append" icon="el-icon-search"></el-button>
@@ -120,10 +141,17 @@
 
   &-right{
     &__header{
-      background: #e8eaf1;
+      background: #eff1f6;
       margin-bottom: 10px;
       padding: 8px 15px;
     }
+  }
+
+  .bbzt-checked{
+    background: #eff1f6;
+    //border: 1px solid red;
+    padding: 10px 10px;
+    margin-top: 10px;
   }
 }
 
@@ -229,6 +257,9 @@ export default {
         resource: '',
         desc: ''
       },
+
+      djgxz:false,
+      bhxj:false,
 
       bbName: "",
       jgName: "",

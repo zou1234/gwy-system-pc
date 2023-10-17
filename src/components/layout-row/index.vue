@@ -1,9 +1,9 @@
 <template>
   <el-row class="layout-row" :gutter="0">
-    <el-col class="layout-row__left" :span="5">
+    <el-col class="layout-row__left" :span="spanConfig[0]">
       <slot name="left"></slot>
     </el-col>
-    <el-col class="layout-row__right" :span="19">
+    <el-col class="layout-row__right" :span="spanConfig[1]">
       <slot name="right"></slot>
     </el-col>
   </el-row>
@@ -11,7 +11,15 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  props:{
+    spanConfig:{
+      type: Array,
+      default(){
+        return [5, 19]
+      }
+    },
+  }
 }
 </script>
 
