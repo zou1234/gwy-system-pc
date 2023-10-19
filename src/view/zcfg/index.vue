@@ -32,21 +32,17 @@
         <el-table :data="tableData" style="width: 100%" border>
           <el-table-column type="index" label="序号" width="60"></el-table-column>
           <el-table-column prop="name" label="法规名称"></el-table-column>
-
           <el-table-column prop="address" label="文件下载" width="100">
             <template v-slot:="scope">
               <el-button size="mini" type="primary" mini>下载</el-button>
             </template>
           </el-table-column>
-
           <el-table-column prop="address" label="表格" width="100">
             <template v-slot:="scope">
               <el-button size="mini"> 表格</el-button>
             </template>
           </el-table-column>
-
         </el-table>
-
       </div>
     </layout-row>
 
@@ -67,19 +63,16 @@
         </el-form>
       </div>
 
-      <div slot="right">
-        <el-table :data="tableData2" style="width: 100%" border>
-          <el-table-column type="index" label="序号" width="60"></el-table-column>
-          <el-table-column prop="name" label="政策法规名称"></el-table-column>
-          <el-table-column prop="sfsbg" label="所附表格名称"></el-table-column>
-          <el-table-column label="操作" width="100">
-            <template v-slot:="scope">
-              <el-button size="mini" type="primary">下载</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-
-      </div>
+      <el-table :data="tableData2" style="width: 100%" border>
+        <el-table-column type="index" label="序号" width="60"></el-table-column>
+        <el-table-column prop="name" label="政策法规名称"></el-table-column>
+        <el-table-column prop="sfsbg" label="所附表格名称"></el-table-column>
+        <el-table-column label="操作" width="100">
+          <template v-slot:="scope">
+            <el-button size="mini" type="primary">下载</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
     </layout-row>
   </div>
 </template>

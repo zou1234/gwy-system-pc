@@ -1,10 +1,13 @@
 <template>
   <el-row class="layout-row" :gutter="0">
+
+
     <el-col class="layout-row__left" :span="spanConfig[0]">
       <slot name="left"></slot>
     </el-col>
     <el-col class="layout-row__right" :span="spanConfig[1]">
       <slot name="right"></slot>
+      <slot></slot>
     </el-col>
   </el-row>
 </template>
