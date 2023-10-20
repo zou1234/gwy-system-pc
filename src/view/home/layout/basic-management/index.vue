@@ -19,6 +19,35 @@
       <img src="./img.png" alt="" width="100%">
 
     </el-dialog>
+
+
+    <el-dialog
+        title="数据接收"
+        :visible.sync="dialogVisibleSjjs"
+        width="848px"
+        class="sjjs"
+        :before-close="handleClose">
+      <div>
+        <div class="sjjs-top">
+          <h4>基础信息数据接收</h4>
+          <el-row :gutter="15">
+            <el-col :span="8" v-for="(item, key) in jcxxsjjs" :key="key">
+              <div class="sjjs-box sjjs-top-box">{{item}}</div>
+            </el-col>
+          </el-row>
+        </div>
+        <br/>
+        <div>
+          <h4>公务员统计信息接收</h4>
+          <el-row :gutter="15">
+            <el-col :span="6" v-for="(item, key) in gwytjxxjs" :key="key">
+              <div class="sjjs-box sjjs-bottom-box">{{item}}</div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+
+    </el-dialog>
   </module-shell>
 </template>
 
@@ -40,6 +69,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      dialogVisibleSjjs: false,
       menuItem: [
         {
           img: require('../../images/jgxxgl.png'),
@@ -61,14 +91,16 @@ export default {
         },
         {
           img: require('../../images/sjjs.png'),
-          title: '数据接受'
+          title: '数据接收'
         },
         {
           img: require('../../images/zcfg.png'),
           title: '政策法规',
           route: '/zcfg'
         },
-      ]
+      ],
+      jcxxsjjs: [ "数据接收", "通用接收", "工资通用信息接收"],
+      gwytjxxjs: [ "报表接收", "批量接收", "第三方报表接收", "第三方批量接收"]
     };
   },
 
@@ -76,13 +108,17 @@ export default {
     handleRouter(item) {
       if (item.route) this.$router.push(item.route);
 
-      if(item.title === "Excel信息采集"){
+      if (item.title === "Excel信息采集") {
         this.dialogVisible = true
+      } else if (item.title === "数据接收") {
+        this.dialogVisibleSjjs = true
       }
+
     },
 
     handleClose(done) {
       this.dialogVisible = false
+      this.dialogVisibleSjjs = false
     }
   }
 };
@@ -118,4 +154,40 @@ export default {
     cursor: pointer;
   }
 }
+
+.sjjs {
+  h4 {
+    color: #333;
+    font-size: 16px;
+    padding-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .sjjs-box{
+    height: 92px;
+    text-align: center;
+    line-height: 92px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .sjjs-top-box {
+    background-image: linear-gradient(0deg, #2b8af0, #2989f0)
+  }
+
+  .sjjs-top-box:hover{
+    background-image: linear-gradient(0deg,#007aff,#00b9ff)
+  }
+
+  .sjjs-bottom-box {
+    background-image: linear-gradient(0deg,#44e2db,#5ec7d5)
+  }
+
+  .sjjs-bottom-box:hover{
+    background-image: linear-gradient(0deg,#44e3c7,#6bdcc8)
+  }
+}
+
 </style>
