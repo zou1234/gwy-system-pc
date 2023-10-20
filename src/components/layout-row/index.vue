@@ -1,5 +1,7 @@
 <template>
   <el-row class="layout-row" :gutter="0">
+
+
     <el-col class="layout-row__left" :span="spanConfig[0]">
       <slot name="left"></slot>
     </el-col>
